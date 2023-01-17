@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>SAG Upgrade Factory</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<style>
+.main-container {
+	border: 1px solid #c3c3c3;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+	margin-top: 100px;
+	padding: 30px 40px;
+	background-color: #80BDE3;
+}
+.product-container {
+	border: 1px solid #c3c3c3;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+	margin-top: 100px;
+	padding: 30px 40px;
+	background-color: #80BDE3;
+}
+</style>
+
+</head>
+<body>
+	<div class="container text-center">
+		<div>
+			<h2>SoftwareAG Utility Factory Migration</h2>
+		</div>
+		<div class="container main-container" align="left">
+			<form th:action="@{/integrationServerController}" th:object="${productsDetails}"
+				method="post">
+				<table>
+					<tr>
+						<td><b>Products :</b></td>
+						<td colspan="2"><b> <input type="radio" name="productName"
+								th:each="product : ${products}" th:text="${product}"
+								th:value="${product}" th:field="*{productName}" /></b></td>
+					</tr>
+					<tr>
+						<td>Source IS version:</td>
+						<td></td>
+						<td><select name="sourceVersion" th:field="*{sourceVersion}">
+								<option id="sourceVersion" th:value="${sourceVersion}"
+									th:text="${sourceVersion}"
+									th:each="sourceVersion: ${serviceDetails.servicePojo.sourceVersion}">
+						</select></td>
+						
+					</tr>
+					<tr>
+						<td>Target IS version:</td>
+						<td></td>
+						<td><select name="targetVersion" th:field="*{targetVersion}"
+							onselect="this.form.submit()">
+								<option id="targetVersion" th:value="${targetVersion}"
+									th:text="${targetVersion}"
+									th:each="targetVersion: ${serviceDetails.servicePojo.targetVersion}">
+						</select></td>
+						
+					</tr>
+					<tr>
+						<td><button class="btn btn-primary" onclick='javascript:window.history.back()'>Back </button></td>
+						<td><button class="btn btn-primary" type="submit">Pre Migration Test</button></td>
+					</tr>
+				</table>
+
+			</form>
+
+		</div>
+
+
+	</div>
+
+</body>
+</html>
