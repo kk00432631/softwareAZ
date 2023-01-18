@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>List Users</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="/css/main.css" type="text/css" />
+     <link rel="stylesheet" href="/css/homeIS.css" type="text/css" />
+    <style>
+	
+	.main-container{
+		border: 1px solid #c3c3c3;
+		box-shadow: 0px 0px 2px rgba(0,0,0,.5);
+		margin-top:100px;
+		padding: 30px 20px;
+		background-color:rgba(255,255,255,.6);
+	}
+	</style>
+</head>
+<body>
+<header class="header">
+		<h2>SoftwareAG Integration server Migration</h2>
+		<div class="icon-group">
+			<a th:href="@{/loginController}"> <img alt="home-pixel"
+				src="/image/home.png" class="icon">
+			</a> <a th:href="@{/logout}"> <img alt="logout-pixel"
+				src="/image/logout.png" class="icon">
+			</a>
+		</div>
+	</header>
+	<div>
+<div class="container">
+ 		 <div>
+			<h2 class="heading">Deprecated Services</h2>
+		</div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Service Name</th>
+                    <th>Replacement</th>
+                    <th>Work Around</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="services : ${serviceList}">
+                    <td th:text="${services.serviceName}">Service Name</td>
+                    <td th:text="${services.serviceReplacement}">Replacement</td>
+                    <td th:text="${services.workAround}">Work Around</td>
+                  
+                </tr>
+            </tbody>
+			<tr>
+			<td><button class="btn btn-primary" onclick='javascript:window.history.back()'>Back </button></td>
+			<td></td>
+			</tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

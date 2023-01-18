@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>SAG Upgrade Factory</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/homeIS.css" type="text/css" />
+<link rel="stylesheet" href="/css/home.css" type="text/css" />
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+
+</head>
+<body>
+<header class="header">
+		<h2>SoftwareAG Integration server Migration</h2>
+		<div class="icon-group">
+			<a th:href="@{/loginController}"> <img alt="home-pixel"
+				src="/image/home.png" class="icon">
+			</a> <a th:href="@{/logout}"> <img alt="logout-pixel"
+				src="/image/logout.png" class="icon">
+			</a>
+		</div>
+	</header>
+	<div class="container">
+		<h2 class="heading">Migration will process in another command prompt window.
+			Please follow the instruction.</h2>
+		
+		<div class="main-container">
+			<form th:action="@{/logGenerater}" th:object="${serviceDetails}"
+				method="post">
+				<table border="1">
+					<tr>
+						<td><b>Target IS</b></td>
+						<td th:text="${serviceDetails.targetISpath}" /></td>
+						<input type="hidden" th:field="*{targetISpath}"
+							class="form-control" /> </td>
+					</tr>
+					<tr>
+						<td><b>Log path:</b></td>
+						<td align="left" th:text="${logPath}" />
+						<input type="hidden" th:field="*{targetInstance}"
+							class="form-control" />
+					</tr>
+					<tr>
+						<td><b>Logs:</b></td>
+						<td><textarea rows="100" cols="100" th:text="${migrationLog}" /></td>
+					</tr>
+					<div>
+						<button type="submit" class="btn btn-primary">Updated
+							Logs</button>
+					</div>
+				</table>
+				</form>
+		</div>
+	</div>
+
+</body>
+</html>

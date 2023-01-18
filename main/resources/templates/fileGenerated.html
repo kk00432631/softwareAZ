@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>SAG Upgrade Factory</title>
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	 <link rel="stylesheet" href="/css/main.css" type="text/css" />
+	 <link rel="stylesheet" href="/css/homeIS.css" type="text/css" />
+<link rel="stylesheet" href="/css/home.css" type="text/css" />
+  
+</head>
+<body>
+	<header class="header">
+		<h2>SoftwareAG Integration server Migration</h2>
+		<div class="icon-group">
+			<a th:href="@{/loginController}"> <img alt="home-pixel"
+				src="/image/home.png" class="icon">
+			</a> <a th:href="@{/logout}"> <img alt="logout-pixel"
+				src="/image/logout.png" class="icon">
+			</a>
+		</div>
+	</header>
+	<div class="container">
+		<h2 class="heading">Dat file details</h2>
+		
+		<div class="main-container">
+			<table border="1">
+				<tr>
+					<td><a th:href="@{/loginController}">Home</a></td>
+					<td><button class="btn btn-primary"
+				onclick='javascript:window.history.go(-2)'>Back</button></td>
+				</tr>
+				<tr>
+					<td>Dat file path:</td>
+					<td th:text="${targetFilePath}" />
+				</tr>
+				<tr>
+					<td>Dat file content:</td>
+					<td align="left" th:text="${FileContent}" />
+				</tr>
+				
+			</table>
+
+		</div>
+
+	</div>
+
+</body>
+</html>

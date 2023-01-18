@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>SAG Upgrade Factory</title>
+
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+<link rel="stylesheet" href="/css/login.css" type="text/css" />
+	
+</head>
+<body>
+	<div class="container">
+		<div>
+			<h2 class="heading">Admin Login</h2>
+		</div>
+		<div class="main-container">
+			<img alt="logo" src="/image/logo.svg" />
+			<form th:action="@{/loginController}" th:object="${userDetail}"
+				method="get" class="form">
+			<span th:if="${error != null}" >Wrong user or password</span>
+				<div class="form-group ">
+					<label class="label">Username: </label>
+					<div class="col-8">
+						<input type="text" th:field="*{username}" class="form-control" placeholder="Enter username here."/>
+					</div>
+				</div>
+
+				<div class="form-group ">
+					<label class="label">Password: </label>
+					<div class="col-8">
+					<input type="password" th:field="*{password}" class="form-control" placeholder="Enter password here." />
+				</div>
+				</div>
+				<button class="btn btn-login" type="submit">Login</button>
+			</form>
+
+		</div>
+
+
+	</div>
+
+</body>
+</html>

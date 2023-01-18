@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sign Up - CodeJava</title>
+
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+<link rel="stylesheet" href="/css/homeIS.css" type="text/css" />
+<link rel="stylesheet" href="/css/home.css" type="text/css" />
+
+</head>
+<body>
+	<header class="header">
+		<h2>SoftwareAG Integration server Migration</h2>
+		<div class="icon-group">
+			<a th:href="@{/loginController}"> <img alt="home-pixel"
+				src="/image/home.png" class="icon">
+			</a> <a th:href="@{/logout}"> <img alt="logout-pixel"
+				src="/image/logout.png" class="icon">
+			</a>
+		</div>
+	</header>
+	<div class="container">
+		<div class="main-container">
+
+			<form th:action="@{/migrationIS}" th:object="${serviceDetails}"
+				method="post" class="form">
+				<div class="form-group">
+
+					<p class="form-label">Services Version</p>
+
+					<p th:text="${serviceDetails.sourceVersion}" /></p>
+				</div>
+				<div class="form-group">
+
+					<p class="form-label">Target Version</p>
+
+					<p th:text="${serviceDetails.targetVersion}" /></p>
+
+				</div>
+				<div class="form-group">
+
+					<p align="left">
+						<a th:href="@{'/deprecated/'+${serviceDetails.targetVersion}}">Find
+							deprecated Services</a>
+					</p>
+				</div>
+				<div class="form-group">
+					<p align="left">
+						<a th:href="@{'/feasibility/'+${serviceDetails.targetVersion}}">Feasibility
+							Test</a>
+					</p>
+
+				</div>
+
+				<div class="form-group">
+					<label class="form-label">Source IS path: </label>
+					<div>
+						<input type="text" th:field="*{sourceISpath}" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-label">Target IS path: </label>
+					<div>
+						<input type="text" th:field="*{targetISpath}" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-label">Source Instance Name: </label>
+					<div>
+						<input type="text" th:field="*{sourceInstance}"
+							class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-label">Target Instance name: </label>
+					<div>
+						<input type="text" th:field="*{targetInstance}"
+							class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="form-label">Migration file path: </label>
+					<div>
+						<input type="text" th:field="*{migrationFile}"
+							class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h4>
+						<a th:href="@{/navigateFileFilter}">Create Custom .dat file</a>
+					</h4>
+				</div>
+				<div class="btn-group">
+					<button class="btn" onclick='javascript:window.history.back()'>Back</button>
+					<button type="submit" class="btn btn">Migrate</button>
+				</div>
+
+
+			</form>
+		</div>
+
+	</div>
+
+
+</body>
+</html>

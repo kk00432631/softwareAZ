@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>SAG Upgrade Factory</title>
+
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+<link rel="stylesheet" href="/css/home.css" type="text/css" />
+
+
+</head>
+<body>
+	<div class="container">
+		<div>
+			<h2 class="heading">SoftwareAG Utility Factory Migration</h2>
+		</div>
+		<div class="main-container">
+			<form th:action="@{/integrationServerController}"
+				th:object="${productsDetails}" method="post" class="form">
+				<div class="form-group">
+					<p class="form-label">Products:</p>
+					<div class="form-radio">
+						<input type="radio" name="productName"
+							th:each="product : ${products}" th:text="${product}"
+							th:value="${product}" th:field="*{productName}"
+							class="form-radio-input" />
+					</div>
+
+				</div>
+
+
+				<div class="form-group">
+					<p class="form-label">Source IS version:</p>
+					<div>
+						<select name="sourceVersion" th:field="*{sourceVersion}">
+							<option id="sourceVersion" th:value="${sourceVersion}"
+								th:text="${sourceVersion}"
+								th:each="sourceVersion: ${serviceDetails.servicePojo.sourceVersion}">
+						</select>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<p class="form-label">Target IS version:</p>
+					<div>
+
+						<select name="targetVersion" th:field="*{targetVersion}"
+							onselect="this.form.submit()">
+							<option id="targetVersion" th:value="${targetVersion}"
+								th:text="${targetVersion}"
+								th:each="targetVersion: ${serviceDetails.servicePojo.targetVersion}">
+						</select>
+					</div>
+				</div>
+
+
+				<div class="btn-group">
+					<button class="btn " onclick='javascript:window.history.back()'>Back</button>
+					<button class="btn btn" type="submit">Pre Migration Test</button>
+				</div>
+
+
+			</form>
+
+		</div>
+
+
+	</div>
+
+</body>
+</html>
