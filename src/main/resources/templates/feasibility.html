@@ -8,7 +8,9 @@
 <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
 <script type="text/javascript"
 	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/homeIS.css" type="text/css" />
 <link rel="stylesheet" href="/css/main.css" type="text/css" />
+<link rel="stylesheet" href="/css/home.css" type="text/css" />
 <style>
 .main-container {
 	border: 1px solid #c3c3c3;
@@ -20,21 +22,29 @@
 </style>
 </head>
 <body>
-	<div class="container text-center">
-		<div>
-			<h2>Feasibility Details</h2>
-			<h3>
-				<a th:href="@{/loginController}">Home</a>
-			</h3>
+<header class="header">
+		<h2>SoftwareAG Integration server Migration</h2>
+		<div class="icon-group">
+			<a th:href="@{/loginController}"> <img alt="home-pixel"
+				src="/image/home.png" class="icon">
+			</a> <a th:href="@{/logout}"> <img alt="logout-pixel"
+				src="/image/logout.png" class="icon">
+			</a>
 		</div>
-		<div class="container main-container">
+	</header>
+	<div class="container">
+		<div>
+			<h2 class="heading">Feasibility Details</h2>
+			
+		</div>
+		<div class="main-container">
 
 			source version is feasible to migrate
 			<td th:text="${targetVersion}" />
 
 		</div>
 		<div>
-			<button class="btn btn-primary"
+			<button class="btn"
 				onclick='javascript:window.history.back()'>Back</button>
 		</div>
 	</div>

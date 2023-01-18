@@ -7,6 +7,7 @@
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="/css/main.css" type="text/css" />
+     <link rel="stylesheet" href="/css/homeIS.css" type="text/css" />
     <style>
 	
 	.main-container{
@@ -19,15 +20,21 @@
 	</style>
 </head>
 <body>
-<div class="container text-center">
-    <div>
-       <h3><a th:href="@{/loginController}">Home</a></h3>
-    </div>
-    <div>
-        <h1>Services Version <td th:text="${targetVersion}"/></h1>
-    </div>
-     
-    <div>
+<header class="header">
+		<h2>SoftwareAG Integration server Migration</h2>
+		<div class="icon-group">
+			<a th:href="@{/loginController}"> <img alt="home-pixel"
+				src="/image/home.png" class="icon">
+			</a> <a th:href="@{/logout}"> <img alt="logout-pixel"
+				src="/image/logout.png" class="icon">
+			</a>
+		</div>
+	</header>
+	<div>
+<div class="container">
+ 		 <div>
+			<h2 class="heading">Deprecated Services</h2>
+		</div>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>

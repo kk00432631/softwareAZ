@@ -1,0 +1,32 @@
+
+.form-group{
+	display:flex;
+	align-items:start;
+	margin-bottom:16px;
+}
+
+.form-label{
+	font-size:18px;
+	font-weight:bold;
+	margin-right: 28px;
+	
+	width:180px;
+}
+
+.form-radio{
+	
+	display:flex;
+	flex-wrap:wrap;
+	gap:8px;
+	
+}
+
+.form-radio-input{
+	border:3px solid blue;
+}
+
+.btn-group{
+	display:flex;
+	justify-content:center;
+	gap:16px;
+}

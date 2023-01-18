@@ -3,88 +3,92 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>SAG Upgrade Factory</title>
-<link rel="stylesheet" type="text/css"
-	href="/webjars/bootstrap/css/bootstrap.min.css" />
-<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/homeIS.css" type="text/css" />
+<link rel="stylesheet" href="/css/home.css" type="text/css" />
 <link rel="stylesheet" href="/css/main.css" type="text/css" />
-<style>
-.main-container {
-	border: 1px solid #c3c3c3;
-	box-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
-	margin-top: 100px;
-	padding: 30px 20px;
-	background-color: #80BDE3;
-}
-</style>
 </head>
 <body>
-	<div class="container text-center">
-		<h1>Dat file attribute selection</h1>
-		<h3>
-			<a th:href="@{/loginController}">Home</a>
-		</h3>
-		<div class="container main-container">
+	<header class="header">
+		<h2>SoftwareAG Integration server Migration</h2>
+		<div class="icon-group">
+			<a th:href="@{/loginController}"> <img alt="home-pixel"
+				src="/image/home.png" class="icon">
+			</a> <a th:href="@{/logout}"> <img alt="logout-pixel"
+				src="/image/logout.png" class="icon">
+			</a>
+		</div>
+	</header>
+	<div class="container">
+		<h2 class="heading">Dat file attribute selection</h2>
+		
+		<div class="main-container">
 
 			<form th:action="@{/generateFile}" th:object="${datFileFilter}"
-				method="post">
-				<table border="1">
-					<tr>
-						<td>Migrate Master Password:</td>
-						<td><label class="radio-inline"> <input type="radio"
-								th:value="true" th:field="*{migrateMasterPassword}" />Yes
+				method="post" class="form">
+				<div class="form-group">
+					<p class="form-label">Migrate Master Password:</p>
+					<label class="radio-inline"> <input type="radio"
+						th:value="true" th:field="*{migrateMasterPassword}" />Yes
+					</label> <label class="radio-inline"> <input type="radio"
+						th:value="false" th:field="*{migrateMasterPassword}" />No
+					</label>
+				</div>
+				<div class="form-group">
+					<p class="form-label">Migrate JDBC Functions:</p>
+					<p>
+						<label class="radio-inline"> <input type="radio"
+							th:value="true" th:field="*{migrateJDBCFunctions}" />Yes
 						</label> <label class="radio-inline"> <input type="radio"
-								th:value="false" th:field="*{migrateMasterPassword}" />No
-						</label></td>
-					</tr>
-					<tr>
-						<td>Migrate JDBC Functions:</td>
-						<td><label class="radio-inline"> <input type="radio"
-								th:value="true" th:field="*{migrateJDBCFunctions}" />Yes
+							th:value="false" th:field="*{migrateJDBCFunctions}" />No
+						</label>
+					</p>
+				</div>
+				<div class="form-group">
+					<p class="form-label">Migrate JDBS Drivers:</p>
+					<p>
+						<label class="radio-inline"> <input type="radio"
+							th:value="true" th:field="*{migrateJDBCDrivers}" />Yes
 						</label> <label class="radio-inline"> <input type="radio"
-								th:value="false" th:field="*{migrateJDBCFunctions}" />No
-						</label></td>
-					</tr>
-						<tr>
-						<td>Migrate JDBS Drivers:</td>
-						<td><label class="radio-inline"> <input type="radio"
-								th:value="true" th:field="*{migrateJDBCDrivers}" />Yes
+							th:value="false" th:field="*{migrateJDBCDrivers}" />No
+						</label>
+					</p>
+				</div>
+				<div class="form-group">
+					<p class="form-label">Migrate JDBC Pools:</p>
+					<p>
+						<label class="radio-inline"> <input type="radio"
+							th:value="true" th:field="*{migrateJDBCPools}" />Yes
 						</label> <label class="radio-inline"> <input type="radio"
-								th:value="false" th:field="*{migrateJDBCDrivers}" />No
-						</label></td>
-					</tr>
-					<tr>
-						<td>Migrate JDBC Pools:</td>
-						<td><label class="radio-inline"> <input type="radio"
-								th:value="true" th:field="*{migrateJDBCPools}" />Yes
+							th:value="false" th:field="*{migrateJDBCPools}" />No
+						</label>
+					</p>
+				</div>
+				<div class="form-group">
+					<p class="form-label">Migrate EmbeddedDB:</p>
+					<p>
+						<label class="radio-inline"> <input type="radio"
+							th:value="true" th:field="*{migrateEmbeddedDb}" />Yes
 						</label> <label class="radio-inline"> <input type="radio"
-								th:value="false" th:field="*{migrateJDBCPools}" />No
-						</label></td>
-					</tr>
-						<tr>
-						<td>Migrate EmbeddedDB:</td>
-						<td><label class="radio-inline"> <input type="radio"
-								th:value="true" th:field="*{migrateEmbeddedDb}" />Yes
+							th:value="false" th:field="*{migrateEmbeddedDb}" />No
+						</label>
+					</p>
+				</div>
+				<div class="form-group">
+					<p class="form-label">Migrate Passman:</p>
+					<p>
+						<label class="radio-inline"> <input type="radio"
+							th:value="true" th:field="*{migratePassman}" />Yes
 						</label> <label class="radio-inline"> <input type="radio"
-								th:value="false" th:field="*{migrateEmbeddedDb}" />No
-						</label></td>
-					</tr>
-					<tr>
-						<td>Migrate Passman:</td>
-						<td><label class="radio-inline"> <input type="radio"
-								th:value="true" th:field="*{migratePassman}" />Yes
-						</label> <label class="radio-inline"> <input type="radio"
-								th:value="false" th:field="*{migratePassman}" />No
-						</label></td>
-					</tr>
-					<tr>
-						<td><button class="btn btn-primary"
-				onclick='javascript:window.history.go(-1)'>Back</button></td>
-						<td><button class="btn btn-primary" type="submit">Generate
-								Dat File</button></td>
-					</tr>
-				</table>
+							th:value="false" th:field="*{migratePassman}" />No
+						</label>
+					</p>
+				</div>
+				<div class="btn-group">
+					<button class="btn" onclick='javascript:window.history.go(-1)'>Back</button>
+					<button class="btn " type="submit">Generate Dat File</button>
+				</div>
+
+
 			</form>
 		</div>
 
